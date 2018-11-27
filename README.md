@@ -3,6 +3,8 @@
 
 Group 18: Ming Gao, Zhe Yin, Zizhao Zhang
 
-Topic: Multilayer Perceptron Models; 
+Topic: Multilayer Perceptron Models 
 
-Data: Telco Customer Churn; Languages: Python (tensorflow and base), R (MXNet)
+Data: Telco Customer Churn
+
+Languages: Python (tensorflow and base), R (MXNet)
