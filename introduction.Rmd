@@ -49,7 +49,7 @@ li a:hover {
 
 ##<font color=green>***Multi-Layer Perceptron***</font>
 
-### Course group(18) project of Stats 506 at University of Michigan in term Fall 2018-<font color=pink>***Gao Ming ***</font>  <font color=purple>***Yin Zhe ***</font>  <font color=blue>***Zizhao Zhang***</font>
+### Course group(18) project of Stats 506 at University of Michigan in term Fall 2018-<font color=pink>***Ming Gao ***</font>  <font color=purple>***Zhe Yin ***</font>  <font color=blue>***Zizhao Zhang***</font>
 
 
 ## General:
