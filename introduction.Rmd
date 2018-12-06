@@ -49,6 +49,8 @@ li a:hover {
 
 ##<font color=green>***Multi-Layer Perceptron***</font>
 
+### Course group(18) project of Stats 506 at University of Michigan in term Fall 2018-<font color=pink>***Gao Ming ***</font>  <font color=purple>***Yin Zhe ***</font>  <font color=blue>***Zizhao Zhang***</font>
+
 
 ## General:
 Neural Network (NN) is no doubt the most interesting and challenging machine learning algorithm. Among NNs, Multi-Layer Perceptron (MLP) is an easy and useful one. In this project we will introduce some most common and well-established frameworks to achieve MLP: R::mxnet (supported by Amazon Web Services (AWS)), Python::tensorflow (developed by Google Brain) and we will realize two-layer NN in basic Python.
