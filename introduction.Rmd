@@ -63,6 +63,16 @@ We have already constructed the architecture of MLP! The LOSS function is nothin
 
 After we get the LOSS, we begin to update the coefficients (weights). How to do it? We can get accurate answer in linear regression and we use Iterative Reweighted Least Squares (IRLS) in logistic regression. We can find that IRLS is nothing fancy than Newton method. Here in MLP we use gradient descent to update weights (because of speed).
 
+Quoted from Dr. Henderson:
+
+> It¡¯s also not quite accurate to describe fitting a neural network to be as simple as IRLS/Newton Rapshon.  These algorithms work and generally find a global optimum because classical regression techniques (using MLE) have convex loss functions.  This is not the case in a neural net and is one of the reasons we need multiple learning epochs.
+
+I am sorry for the inaccuracy. The objective function in MLP is not convex thus there is no guarantee that it will converge or not. In application, we simply use stochastic gradient descent method (SGD, using a batch of samples each time) to save running time. In some situations, we can use advanced methods such as Adam Optimizer or RMSprop. We can think these optimizers as changing learning rate each time automatically.
+
+It is not a big problem for non-convergence because we use oversized parameter and stochastic methods. See these quotes from the paper [CNN Gradient-Based Learning Applied to Document Recognition]:
+
+> The fact that local minima do not seem to be a problem for MLP is somewhat of a theoretical mystery. It is conjectured that if the network is oversized for the task, the presence of extra dimensions in parameter space reduced the risk of unattainable regions.
+
 That's it! We get all the whole important parts in MLP. Still confused? Never mind, please take a look at two-layer MLP in base Python and follow it line-by-line. Codes are usually more logical than words.
 
 The above are just my own understanding of MLP and I don't want to copy and paste tedious definitions and concepts from Wiki or somewhere else. The detailed MLP may cost 1000 pages long. However, I will introduce some resources for you to get mathematical and standard formula in NN.
@@ -73,7 +83,7 @@ Also, we can use some built platform to achieve more advanced NN structures. How
 
 ## Algorithm description: 
 
-A multilayer perceptron (MLP) is a feedforward artificial neural network model that has one layer or more of hidden units and nonlinear activations. In fact, â€˜multilayer perceptronâ€™ is really a misnomer, because rather than containing multiple perceptrons (with discontinuous nonlinear activations), the model comprises multiple layers of logistic regression models (with continuous nonlinearities). Instead of feeding the input to the logistic regression, in a MLP you insert a intermediate layer (the hidden layer) that has a nonlinear activation function (such as tanh or sigmoid). One can make the architecture deep by inserting many such hidden layers.
+A multilayer perceptron (MLP) is a feedforward artificial neural network model that has one layer or more of hidden units and nonlinear activations. In fact, Multilayer perceptron is really a misnomer, because rather than containing multiple perceptrons (with discontinuous nonlinear activations), the model comprises multiple layers of logistic regression models (with continuous nonlinearities). Instead of feeding the input to the logistic regression, in a MLP you insert a intermediate layer (the hidden layer) that has a nonlinear activation function (such as tanh or sigmoid). One can make the architecture deep by inserting many such hidden layers.
 Here is an example of its basic structure (from cs231n.standford.edu):
 ![cs231n standford.edu](./mlp_r_mxnet.jpg)
 
@@ -108,7 +118,7 @@ The dataset can downloaded using the following command running: "kaggle datasets
 service) 
 
 ***
-9th Column: InternetService - Customerâ€™s internet service provider (DSL, Fiber optic, No)
+9th Column: InternetService - Customer internet service provider (DSL, Fiber optic, No)
 
 ***
 10th Column: OnlineBackup - Whether the customer has online backup or not (Yes, No, No internet service)
@@ -132,7 +142,7 @@ service)
 16th Column: PaperlessBilling - Whether the customer has paperless billing or not (Yes, No)
 
 ***
-17th Column: PaymentMethod - The customerâ€™s payment method (Electronic check, Mailed check, Bank transfer (automatic), Credit card (automatic)) 
+17th Column: PaymentMethod - The customer payment method (Electronic check, Mailed check, Bank transfer (automatic), Credit card (automatic)) 
 
 ***
 18th Column: MonthlyCharges - The amount charged to the customer monthly 
@@ -142,11 +152,11 @@ service)
 
 ## What's new compared with last year:
 
-We talked about the architecture and some main concepts in MLP (LOSS, back-propagate) and we give an inspiring and exciting implement using base Python with just 100 lines of code (which is understandable I think). By contract, I think we know nothing after reading last year's project except we have a sense that MLP is really abstruse. I hope, after reading our project, you may fell that MLP is easy and nothing difficult than linear model:)
+We talked about the architecture and some main concepts in MLP (LOSS, back-propagate) and we give an inspiring and exciting implement using base Python with just 100 lines of code (which is understandable I think). As we skimmed through last year¡¯s project, we indeed were able to grasp the essential idea of MLP, and were inspired by their contents. I hope, after reading our project, you may fell that MLP is easy and nothing difficult than linear model:)
 
 Last year they use R::neuralnet and Python::sklearn.neural\_network.MLPClassifier to realize MLP. However we introduce tensorflow and MXNet, which are no doubt more advanced and well-established. I think we should use the most popular platform not only because they are more stable but also they have bigger community which are pivot for us learners.
 
-Also, I want to figure out a mistake in last year group 12 R implement of NN. they use total dataset (Boston) to set max and min for scaling and apply them to both train and test dataset. This mistake is one of the most common one for beginners. Actually we can not use any information of test dataset (they are unknown). What makes sense is that we scale train dataset as usual and use the same scaling parameters to test dataset.
+Last year, they use total dataset (Boston) to set max and min for scaling and apply them to both train and test dataset. In my opinion, it may allow information leakage if we use information in test dataset when scaling training dataset. What a more common procedure is that we scale train dataset as usual and use the same scaling parameters to test dataset.
 
 
 ## Things to consider when following along the way:
